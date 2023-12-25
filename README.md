@@ -20,6 +20,7 @@ The code needs 4 parameters to run correctly:
 - SYMBOLS -> A list of the cryptos you want to follow
 - TELEGRAM_API_TOKEN -> Your telegram token to send notifications. You can check [here](https://github.com/aperello96/telegram_robot) for how to create one
 - TELEGRAM_CHAT_ID -> Your chat id where you want to be notified
+- TZ -> Your time zone. Ej: Europe/Madrid
 
 ## Limitations:
 

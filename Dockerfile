@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 
 # Instala el instalador de paquetes pip y cron
 RUN apt-get update && apt-get install -y python3 python3-pip cron
-
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 
 # Instala las librerias python necesarias
 RUN pip3 install --no-cache-dir requests python-dotenv numerize
@@ -22,7 +22,7 @@ RUN chmod 0644 /root/main.py
 RUN touch /var/log/cron.log
 
 # Start TAIL - as your always-on process (otherwise - container exits right after start)
-CMD cron && printenv | grep -v "no_proxy" >> /etc/environment && tail -f /var/log/cron.log
+CMD printenv | grep -v "no_proxy" >> /etc/environment && cron && tail -f /var/log/cron.log
 # "printenv | grep -v "no_proxy" >> /etc/environment" is used to send all env vars to /etc/environment to be used on cronjobs. cronjob can use only variables that are in this file
 
 #Run
