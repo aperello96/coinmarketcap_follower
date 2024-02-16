@@ -60,7 +60,7 @@ try:
           price = round(cripto_founded['quote']['USD']['price'],4)
           print(f'La criptomoneda con símbolo {symbol} tiene un cmc_rank de: {cmc_rank}')
           print(f'La criptomoneda con símbolo {symbol} tiene un capital de mercado de: {cap_market}')
-          send_to_telegram(message=f'{symbol}: \n \n 🏆: {cmc_rank} \n 💰: {cap_market} \n 🏷️: {price}$', apiToken=telegram_api_token, chatID=telegram_chat_id)
+          send_to_telegram(message=f'{symbol}: \n 🏆: {cmc_rank} \n 🏷️: {price}$ \n 💰: {cap_market}', apiToken=telegram_api_token, chatID=telegram_chat_id)
       else:
           print(f'No se encontró la criptomoneda con símbolo {symbol}')
 
